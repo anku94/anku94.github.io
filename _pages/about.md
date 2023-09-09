@@ -17,7 +17,7 @@ selected_papers: false # includes a list of papers marked as "selected={true}"
 social: true  # includes social icons at the bottom of the page
 ---
 
-Graduate Student. Migrated from [Medium](https://medium.com/@schwifty50) because it wouldn't support Markdown.
+Sytems PhD Student at [CMU PDL](https://www.pdl.cmu.edu/), advised by [George Amvrosiadis](http://users.ece.cmu.edu/~gamvrosi/). Migrated from [Medium](https://medium.com/@schwifty50) because it wouldn't support Markdown.
 
 <!-- Write your biography here. Tell the world about yourself. Link to your favorite [subreddit](http://reddit.com). You can put a picture in, too. The code is already in, just name your picture `prof_pic.jpg` and put it in the `img/` folder. -->
 
