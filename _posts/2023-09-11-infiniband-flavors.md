@@ -3,8 +3,8 @@ layout: post
 title: The Varied Flavors of Infiniband
 date: 2023-09-11 15:05:42-0400
 description: Some description
-tags: tag
-categories: cat
+tags: networks
+categories: systems
 giscus_comments: true
 related_posts: false
 ---
@@ -13,15 +13,15 @@ This is an attempt to track and understand all the different "flavors" of Infini
 
 Thinking of things like PSM, PSM2, OFI, Verbs, UCX etc. I doubt this particular post will have anything insightful --- this is more of a placeholder for more insightful things in the future.
 
-### Pre-historic Times (1995-2002)
+## Pre-historic Times (1995-2002)
 
 Most HPC clusters had proprietary networks, with their own [MPI providers][1]. Some weird-sounding names: MPICH-MX, MPICH-Elanlab.
 
-### Ancient Times (1995-2002)
+## Ancient Times (1995-2002)
 
 InfiniBand: long awaited HPC network standard. Comes with OFED open-source networks stack, the `verbs` API. MPI implementations started using Verbs.
 
-### Modern Times (2005-2010)
+## Pre-Modern (2005-2010) and Modern (2010-Now) Times
 
 ### Performance-Scaled Messaging
 
