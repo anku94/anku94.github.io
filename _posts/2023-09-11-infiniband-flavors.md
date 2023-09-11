@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Some title
+title: The Varied Flavors of Infiniband
 date: 2023-09-11 15:05:42-0400
 description: Some description
 tags: tag
