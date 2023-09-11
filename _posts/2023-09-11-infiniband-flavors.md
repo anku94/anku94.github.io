@@ -48,10 +48,8 @@ This is more of questions and references.
 
 It seems one of the considerations for PSM was the NIC SRAM overhead of creating Verbs Queue Pairs. NIC SRAM is finite, and for all-to-all type communication patterns, the SRAM can not fit all the contexts. This [paper](https://www.usenix.org/system/files/conference/osdi16/osdi16-kalia.pdf) also talks about prefering RDMA UDs over RCs. With RDMA UD, one queue pair can be used for multiple destinations, and the total number of QPs can be controlled. We don't want CPU cores contending over UDs, so one QP/core is still desirable, but it scales with the number of cores, instead of the number of destinations, which is a lot more tractable for large clusters.
 
-One of the references also talks about dynamic congestion detectioni and rerouting borrowed from Aries and incorporated into Omni-Path.
+One of the references also talks about dynamic congestion detection and rerouting borrowed from Aries and incorporated into Omni-Path. As per [this][4]: QLogic thought that the best way to provide scaling was to avoid hardware offload entirely, and have everything be done by building on efficient Host CPU-based primitives. Datacenter hardware trying to support TCP, as we know in hindsight, went in the opposite direction, and now we're talking about DPUs and SmartNICs.
 
-
-- What are other design advantages of PSM over Verbs?
 
 ### Mellanox and Nvidia
 
@@ -68,3 +66,4 @@ Phew.
 [1]: https://agullo-teach.gitlabpages.inria.fr/school/school2019/slides/mpi.pdf
 [2]: https://www.nextplatform.com/2021/07/09/a-third-dialect-of-infiniband-in-the-works-again/
 [3]: https://www.nextplatform.com/2023/08/24/cornelis-unveils-ambitious-omni-path-interconnect-roadmap/
+[4]: https://www.youtube.com/watch?v=E0uSl_gyZnI
