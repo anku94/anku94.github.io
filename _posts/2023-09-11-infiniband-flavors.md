@@ -37,7 +37,7 @@ They were later sold to Intel. Their tech became the basis of a second-gen inter
 
 Something happened at Intel around 2019 --- they canceled the 200 Gbps variant of Omni-Path. In 2020, a company called Cornelis Networks was spun out to carry Omni-Path forward.
 
-[Cornelis][2][3] still exists, and are continuing the development of Omni-Path-based products.
+[Cornelis][2] still exists, and are continuing the development of Omni-Path-based products.
 
 
 #### PSM Technical Details
@@ -64,8 +64,6 @@ Similar stuff?
 ### Then there is CXL
 
 Phew.
-
-References:
 
 [1]: https://agullo-teach.gitlabpages.inria.fr/school/school2019/slides/mpi.pdf
 [2]: https://www.nextplatform.com/2021/07/09/a-third-dialect-of-infiniband-in-the-works-again/
