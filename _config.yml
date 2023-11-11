@@ -204,17 +204,20 @@ kramdown:
       start_line: 1
 
 # Includes & excludes
-include: ['_pages', '_next' ]
+include: ['_pages', '_next']
 exclude:
   - bin
   - Gemfile
   - Gemfile.lock
   - vendor
-  - dash
+  - _next
+
 keep_files:
   - CNAME
   - .nojekyll
   - .git
+  - dash
+  - _next
 
 # Plug-ins
 plugins:
