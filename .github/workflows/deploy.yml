@@ -32,6 +32,11 @@ jobs:
         npm install -g mermaid.cli
         export JEKYLL_ENV=production
         bundle exec jekyll build
+    - name: Copy dash to _site
+      run: |
+        cp -r dash _site/
+        touch _site/dash/_next/.nojekyll
+        touch _site/dash/.nojekyll
     - name: Deploy 🚀
       if: github.event_name != 'pull_request'
       uses: JamesIves/github-pages-deploy-action@v4
