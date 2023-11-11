@@ -204,13 +204,13 @@ kramdown:
       start_line: 1
 
 # Includes & excludes
-include: ['_pages', '_next']
+include: ['_pages']
 exclude:
   - bin
   - Gemfile
   - Gemfile.lock
   - vendor
-  - _next
+  - pages
 
 keep_files:
   - CNAME
