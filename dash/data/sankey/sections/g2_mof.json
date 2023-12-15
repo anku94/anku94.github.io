@@ -1,0 +1,85 @@
+{
+  "id": "root_g2_mof",
+  "desc": "Ministry of Finance section",
+  "nodes": {
+    "mof": "Ministry of Finance",
+    "mof_dor_ttsu_oglt_ctsufrloroog": "Compensation to States/UTs for revenue losses on roll out of GST",
+    "mof_ip_cse_ocse_o_iosspfe_iossdcaoe": "Interest on Small Savings deposits,<br />certificates and operational expenses",
+    "mof_ip_cse_ocse_o_ioid": "Interest on Internal Debt",
+    "mof_tts_ttsu_fcg_gupta21otc_gflb": "Grants for Local Bodies",
+    "mof_tts_ttsu_oglt_saaltsfce": "Special Assistance as Loan to States for Capital Expenditure",
+    "mof_p_cse_eeotc_paorb": "Pensions and other Retirement Benefits",
+    "mof_eps": "Employees Pension Scheme",
+    "mof_otpoa": "Onetime payment of Arrears",
+    "mof_abrby": "Aatmanirbhar Bharat Rojgar Yojana",
+    "mof_niif": "National Investment and Infrastructure Fund",
+    "mof_ffpb": "Freedom Fighters Pension and Benefits",
+    "mof_gccaapy": "Government Co-contribution to Atal Pension Yojana"
+  },
+  "edges": [
+    [
+      "mof",
+      "mof_ip_cse_ocse_o_ioid",
+      821195
+    ],
+    [
+      "mof",
+      "mof_ip_cse_ocse_o_iosspfe_iossdcaoe",
+      184840
+    ],
+    [
+      "mof",
+      "mof_dor_ttsu_oglt_ctsufrloroog",
+      145000
+    ],
+    [
+      "mof",
+      "mof_tts_ttsu_oglt_saaltsfce",
+      130000
+    ],
+    [
+      "mof",
+      "mof_tts_ttsu_fcg_gupta21otc_gflb",
+      71240
+    ],
+    [
+      "mof",
+      "mof_p_cse_eeotc_paorb",
+      68356
+    ],
+    [
+      "mof",
+      "mof_eps",
+      9167
+    ],
+    [
+      "mof",
+      "mof_otpoa",
+      4081
+    ],
+    [
+      "mof",
+      "mof_abrby",
+      2273
+    ],
+    [
+      "mof",
+      "mof_niif",
+      2000
+    ],
+    [
+      "mof",
+      "mof_ffpb",
+      653
+    ],
+    [
+      "mof",
+      "mof_gccaapy",
+      521
+    ]
+  ],
+  "pos": {
+    "x": "l2",
+    "y": "ymof"
+  }
+}

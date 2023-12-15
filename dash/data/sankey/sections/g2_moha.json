@@ -1,0 +1,33 @@
+{
+  "id": "root_g2_moha",
+  "desc": "Ministry of Home Affairs section",
+  "nodes": {
+    "moha": "Ministry of Home Affairs",
+    "moha_police": "Police",
+    "moha_uts": "Union Territories",
+    "moha_others": "Others",
+    "moha_capf": "Central Armed Police Force",
+    "moha_dp": "Delhi Police",
+    "moha_pi": "Police Infrastructure",
+    "moha_ib": "Intelligence Bureau",
+    "moha_mp": "Modernisation of police",
+    "moha_bi": "Border Infrastructure",
+    "moha_others_": "Others"
+  },
+  "edges": [
+    ["moha", "moha_police", 127757],
+    ["moha", "moha_uts", 61118],
+    ["moha", "moha_others", 7160],
+    ["moha_police", "moha_capf", 94665],
+    ["moha_police", "moha_dp", 11662],
+    ["moha_police", "moha_pi", 3637],
+    ["moha_police", "moha_ib", 3418],
+    ["moha_police", "moha_mp", 3750],
+    ["moha_police", "moha_bi", 3545],
+    ["moha_police", "moha_others_", 7080]
+  ],
+  "pos": {
+    "x": "l2",
+    "y": "ymoha"
+  }
+}

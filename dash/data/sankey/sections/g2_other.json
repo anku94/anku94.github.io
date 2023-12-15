@@ -1,0 +1,249 @@
+{
+  "id": "root_g2_other",
+  "desc": "Other Ministries section",
+  "nodes": {
+    "other": "Other Ministries",
+    "other_urm": "Urban Rejuvenation Mission",
+    "other_nlm": "National Livelihood Mission - Ajeevika",
+    "other_pmksy": "PMKSY",
+    "other_upsc": "Umbrella Scheme for SCs",
+    "other_rkvy": "Rashtriya Krishi Vikas Yojna",
+    "other_ky": "Krishionnati Yojana",
+    "other_upst": "Umbrella Program for STs",
+    "other_mpf": "Modernisation of Police Forces",
+    "other_ior": "Interlinking of Rivers",
+    "other_ms": "Mission Shakti",
+    "other_ies": "Interest Equalisation Scheme",
+    "other_upovg": "Umbrella Program for Other Vulnerable Groups",
+    "other_br": "Blue Revolution",
+    "other_nicdit": "National Industrial Corridor Development and Implementation Trust",
+    "other_cigst": "Refund of CGST and IGST to NE and Himalayan States",
+    "other_feedstock": "Feedstock",
+    "other_fof": "Fund of Funds",
+    "other_dp": "Development Programmes",
+    "other_ipe": "Investment in Public Enterprises",
+    "other_dpharma": "Development of Pharmaceutical Industry",
+    "other_rcs": "Regional Connectivity Scheme",
+    "other_plis": "Production Linked Incentive Schemes",
+    "other_ifj": "Infrastructure Facilities for Judiciary",
+    "other_barcrdp": "BARC R&D Projects",
+    "other_caps": "Computerization of Primary Agricultural Credit Societies",
+    "other_fpos": "Formation and Promotion of FPOs",
+    "other_diis": "Domestic Industry Incentivisation Scheme",
+    "other_rdp": "Research and Development Projects",
+    "other_frp": "Fuel Recycle Projects",
+    "other_nffp": "Nuclear Fuel Fabrication Projects",
+    "other_efw": "Environment, Forestry and Wildlife",
+    "other_cs": "Crop Science",
+    "other_pmfme": "PM Formalisation of Micro Food Processing Enterprises Scheme",
+    "other_upm": "Umbrella Program for Minorities",
+    "other_badp": "Border Area Development Program",
+    "other_frfcpk": "Fast Reactor Fuel Cycle Projects Kalpakkam"
+  },
+  "edges": [
+    [
+      "other",
+      "other_urm",
+      16000
+    ],
+    [
+      "other",
+      "other_nlm",
+      14129
+    ],
+    [
+      "other",
+      "other_pmksy",
+      10787
+    ],
+    [
+      "other",
+      "other_upsc",
+      9409
+    ],
+    [
+      "other",
+      "other_rkvy",
+      7150
+    ],
+    [
+      "other",
+      "other_ky",
+      7066
+    ],
+    [
+      "other",
+      "other_upst",
+      4295
+    ],
+    [
+      "other",
+      "other_mpf",
+      3750
+    ],
+    [
+      "other",
+      "other_ior",
+      3500
+    ],
+    [
+      "other",
+      "other_ms",
+      3144
+    ],
+    [
+      "other",
+      "other_ies",
+      2932
+    ],
+    [
+      "other",
+      "other_upovg",
+      2194
+    ],
+    [
+      "other",
+      "other_br",
+      2025
+    ],
+    [
+      "other",
+      "other_nicdit",
+      2000
+    ],
+    [
+      "other",
+      "other_cigst",
+      1714
+    ],
+    [
+      "other",
+      "other_feedstock",
+      1599
+    ],
+    [
+      "other",
+      "other_feedstock",
+      1599
+    ],
+    [
+      "other",
+      "other_feedstock",
+      1599
+    ],
+    [
+      "other",
+      "other_feedstock",
+      1599
+    ],
+    [
+      "other",
+      "other_feedstock",
+      1599
+    ],
+    [
+      "other",
+      "other_fof",
+      1470
+    ],
+    [
+      "other",
+      "other_dp",
+      1406
+    ],
+    [
+      "other",
+      "other_ipe",
+      1310
+    ],
+    [
+      "other",
+      "other_dpharma",
+      1250
+    ],
+    [
+      "other",
+      "other_rcs",
+      1244
+    ],
+    [
+      "other",
+      "other_plis",
+      1200
+    ],
+    [
+      "other",
+      "other_ifj",
+      1061
+    ],
+    [
+      "other",
+      "other_barcrdp",
+      1013
+    ],
+    [
+      "other",
+      "other_caps",
+      968
+    ],
+    [
+      "other",
+      "other_fpos",
+      955
+    ],
+    [
+      "other",
+      "other_diis",
+      915
+    ],
+    [
+      "other",
+      "other_rdp",
+      840
+    ],
+    [
+      "other",
+      "other_frp",
+      805
+    ],
+    [
+      "other",
+      "other_nffp",
+      764
+    ],
+    [
+      "other",
+      "other_efw",
+      759
+    ],
+    [
+      "other",
+      "other_cs",
+      714
+    ],
+    [
+      "other",
+      "other_pmfme",
+      639
+    ],
+    [
+      "other",
+      "other_upm",
+      610
+    ],
+    [
+      "other",
+      "other_badp",
+      600
+    ],
+    [
+      "other",
+      "other_frfcpk",
+      516
+    ]
+  ],
+  "pos": {
+    "x": "l2",
+    "y": "yother"
+  }
+}
