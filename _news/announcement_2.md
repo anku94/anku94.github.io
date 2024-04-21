@@ -5,4 +5,4 @@ inline: true
 related_posts: false
 ---
 
-A [policy/data viz](https://anku94.github.io/dash/sankey) experiment.
+A [policy/data viz](https://anku94.github.io/dash/dashboard) experiment.
