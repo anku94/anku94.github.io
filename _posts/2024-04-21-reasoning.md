@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: On reasoning, autonomy, intelligence etc.
 title: On reasoning, autonomy, intelligence etc.
 date: 2024-04-21 17:31:58-0400
 description: Or what would it take to get to agents with these properties.
@@ -11,9 +11,9 @@ categories: ml
 giscus_comments: true
 related_posts: false
 ---
-So the topic for this post is a bit out of my wheelhouse. The primary purpose of this post is to flush some thoughts that are brewing in my head so that I can get back to my day job. Everything else is secondary. I should warn anyone reading this that I have no particular background in these topics, nor have I done a decent job of keeping up to date on related work. This post will have no references - it may be completely off-track, or reasonable but outdated, or exist in any other defined epistemic state. _Caveat Emptor._
+So the topic for this post is a bit out of my wheelhouse. The primary purpose of this post is to flush some thoughts that are brewing in my head so that I can get back to my day job. Everything else is secondary. I should warn anyone reading this that I have no particular background in these topics, nor have I done a decent job of keeping up to date on related work. This post will have no references --- it may be completely off-track, or reasonable but outdated, or exist in any other defined epistemic state. _Caveat Emptor._
 
-Over this post, I will explore five topics - intelligence, autonomy, reasoning, planning, and consciousness. This has been obviously prompted by the hottest thing to happen this decade (LLMs). Let me structure this post as a series of theses and rationales.
+Over this post, I will explore five topics --- intelligence, autonomy, reasoning, planning, and consciousness. This has been obviously prompted by the hottest thing to happen this decade (LLMs). Let me structure this post as a series of theses and rationales.
 ## LLMs, As Currently Designed, Can Not Be Reasoning
 
 This idea emerged in my head in the early days of GPT-3. Its prowess was shocking, and everyone started reassessing everything (_autogaslighting_).
@@ -27,10 +27,10 @@ More specifically, an inference agent that is thinking and planning will have so
 
 I am sure there is material by scientist-philosophers exploring the definition of intelligence. I have not read any of it. The thesis is that it is am ambiguous phrase encapsulating all the flaws of natural language, and is best avoided. The other four words, in my head, lend to much cleaner definitions.
 
-1. **Reasoning** - The ability to model a situation as statements in some form of logic (say propositional logic), and prove them to be correct as per the rules of that logic.
-2. **Autonomy** - The ability to operate independently in pursuit of some objective.
-3. **Planning** - The ability to decompose a complex problem into a series of subproblems. This is very much like A* search --- it is recursive, and may require backtracking. It is essentially a solver, and benefits from some "intuition", which is a set of heuristics that produce a partial solution quickly and speed up the solver. It also requires an ability (intrinsic or external) to know if the objective has been met.
-4. **Consciousness** - It is simply a state of heightened autonomy, where an agent is able to choose its objective function, and change it at any point.
+1. **Reasoning**. The ability to model a situation as statements in some form of logic (say propositional logic), and prove them to be correct as per the rules of that logic.
+2. **Autonomy**. The ability to operate independently in pursuit of some objective.
+3. **Planning**. The ability to decompose a complex problem into a series of subproblems. This is very much like A* search --- it is recursive, and may require backtracking. It is essentially a solver, and benefits from some "intuition", which is a set of heuristics that produce a partial solution quickly and speed up the solver. It also requires an ability (intrinsic or external) to know if the objective has been met.
+4. **Consciousness**. It is simply a state of heightened autonomy, where an agent is able to choose its objective function, and change it at any point.
 ## Consciousness Emerges from Autonomy and Reasoning
 
 In the previous subsection, I was trying to go for definitions that allow the respective traits to exist independently, albeit complementarily. I do not think I fully succeeded.
