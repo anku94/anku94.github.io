@@ -158,9 +158,9 @@ giscus:
 # External sources.
 # If you have blog posts published on medium.com or other external sources,
 # you can display them in your blog by adding a link to the RSS feed.
-external_sources:
-  - name: medium.com
-    rss_url: https://medium.com/@schwifty50/feed
+#external_sources:
+#  - name: medium.com
+#    rss_url: https://medium.com/@schwifty50/feed
 
 # -----------------------------------------------------------------------------
 # Collections
