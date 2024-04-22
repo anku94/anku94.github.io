@@ -1,5 +1,5 @@
 ---
-layout: On reasoning, autonomy, intelligence etc.
+layout: post
 title: On reasoning, autonomy, intelligence etc.
 date: 2024-04-21 17:31:58-0400
 description: Or what would it take to get to agents with these properties.
