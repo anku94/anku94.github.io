@@ -8,7 +8,7 @@ middle_name:
 last_name: Jain
 email: fname+lname[0]@cmu.edu
 description: > # the ">" symbol means to ignore newlines until "footer_text:"
-  Ankush's personal website and blog on assorted systems topics
+  Personal website and blog of Ankush Jain, PhD Student at CMU PDL. Topics include systems, storage, networks, HPC etc.
 footer_text: >
   Powered by <a href="https://jekyllrb.com/" target="_blank">Jekyll</a> with <a href="https://github.com/alshedivat/al-folio">al-folio</a> theme.
   Hosted by <a href="https://pages.github.com/" target="_blank">GitHub Pages</a>.
@@ -74,9 +74,9 @@ github_username: anku94
 gitlab_username: # your GitLab user name
 twitter_username: schwifty50
 mastodon_username: discuss.systems/@schwifty50 # your mastodon instance+username in the format instance.tld/@username
-linkedin_username: # your LinkedIn user name
+linkedin_username: ankush-jain-7382b354
 telegram_username: # your Telegram user name
-scholar_userid: # your Google Scholar ID
+scholar_userid: 8OCJpykAAAAJ
 semanticscholar_id: # your Semantic Scholar ID
 whatsapp_number: # your WhatsApp number (full phone number in international format. Omit any zeroes, brackets, or dashes when adding the phone number in international format.)
 orcid_id: # your ORCID ID
@@ -88,7 +88,7 @@ osf_id: # your OSF ID
 research_gate_profile: # your profile on ResearchGate
 scopus_id: # your profile on Scopus
 blogger_url: # your blogger URL
-work_url: # work page URL
+work_url: https://users.ece.cmu.edu/~ankushj
 keybase_username: # your keybase user name
 wikidata_id: # your wikidata id
 wikipedia_id: # your wikipedia id (Case sensitive)
@@ -124,7 +124,7 @@ bing_site_verification:  # out your bing-site-verification ID (Bing Webmaster)
 
 blog_name: assorted systems # blog_name will be displayed in your blog page
 blog_nav_title: blog # your blog must have a title for it to be displayed in the nav bar
-blog_description: more notes than anything else, may be informative
+blog_description: more notes than anything else, may be informative. topics: systems, storage, networks etc.
 permalink: /blog/:year/:title/
 
 # Pagination
