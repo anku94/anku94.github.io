@@ -1,0 +1,67 @@
+{
+  "id": "root_g2_moea",
+  "desc": "Ministry of External Affairs section",
+  "nodes": {
+    "moea": "Ministry of External Affairs",
+    "moea_ngp": "National Ganga Plan",
+    "moea_nesids": "North East Special Infrastructure Development Scheme",
+    "moea_sfb": "Scheme for Bhutan",
+    "moea_pmdine": "PM's Development Initiative for North East Region",
+    "moea_iggl": "Indradhanush Gas Grid Limited",
+    "moea_locideas": "Lines of Credit under IDEAS",
+    "moea_sonec": "Schemes of North East Council",
+    "moea_cop": "Control of Pollution",
+    "moea_sfn": "Scheme for Nepal"
+  },
+  "edges": [
+    [
+      "moea",
+      "moea_ngp",
+      4000
+    ],
+    [
+      "moea",
+      "moea_nesids",
+      2491
+    ],
+    [
+      "moea",
+      "moea_sfb",
+      2401
+    ],
+    [
+      "moea",
+      "moea_pmdine",
+      2200
+    ],
+    [
+      "moea",
+      "moea_iggl",
+      1800
+    ],
+    [
+      "moea",
+      "moea_locideas",
+      1300
+    ],
+    [
+      "moea",
+      "moea_sonec",
+      800
+    ],
+    [
+      "moea",
+      "moea_cop",
+      756
+    ],
+    [
+      "moea",
+      "moea_sfn",
+      550
+    ]
+  ],
+  "pos": {
+    "x": "l2",
+    "y": "ymoea"
+  }
+}

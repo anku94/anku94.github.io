@@ -1,0 +1,102 @@
+{
+  "id": "root_g2_mohafw",
+  "desc": "Ministry of Health and Family Welfare section",
+  "nodes": {
+    "mohafw": "Ministry of Health and Family Welfare",
+    "mohafw_nhm": "National Health Mission",
+    "mohafw_saapo": "Saksham Anganwadi and POSHAN 2.0",
+    "mohafw_pmposhan": "Pradhan Mantri Poshan Shakti Nirman",
+    "mohafw_pmjay": "PMJAY",
+    "mohafw_sbm": "Swachh Bharat Mission",
+    "mohafw_pmabhima": "Pradhan Mantri Ayushman Bharat Health Infrastructure Mission",
+    "mohafw_pi": "Police Infrastructure",
+    "mohafw_bim": "Border Infrastructure and Management",
+    "mohafw_pmssy": "Pardhan Mantri Swasthya Suraksha Yojana",
+    "mohafw_nasdcp": "National AIDS and STD Control Programme",
+    "mohafw_lhdc": "Livestock Health and Disease Control Programme",
+    "mohafw_mv": "Mission VATSALYA",
+    "mohafw_icjs": "Inter Operable Criminal Justice System",
+    "mohafw_fws": "Family Welfare Schemes"
+  },
+  "edges": [
+    [
+      "mohafw",
+      "mohafw_nhm",
+      36785
+    ],
+    [
+      "mohafw",
+      "mohafw_saapo",
+      20554
+    ],
+    [
+      "mohafw",
+      "mohafw_pmposhan",
+      11600
+    ],
+    [
+      "mohafw",
+      "mohafw_pmjay",
+      7200
+    ],
+    [
+      "mohafw",
+      "mohafw_sbm",
+      5000
+    ],
+    [
+      "mohafw",
+      "mohafw_pmabhima",
+      4200
+    ],
+    [
+      "mohafw",
+      "mohafw_pi",
+      3637
+    ],
+    [
+      "mohafw",
+      "mohafw_bim",
+      3545
+    ],
+    [
+      "mohafw",
+      "mohafw_pmssy",
+      3365
+    ],
+    [
+      "mohafw",
+      "mohafw_nasdcp",
+      3080
+    ],
+    [
+      "mohafw",
+      "mohafw_lhdc",
+      2350
+    ],
+    [
+      "mohafw",
+      "mohafw_mv",
+      1472
+    ],
+    [
+      "mohafw",
+      "mohafw_pmabhima",
+      646
+    ],
+    [
+      "mohafw",
+      "mohafw_icjs",
+      591
+    ],
+    [
+      "mohafw",
+      "mohafw_fws",
+      517
+    ]
+  ],
+  "pos": {
+    "x": "l2",
+    "y": "ymohafw"
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "id": "subsidies",
+  "nodes": {
+    "all_subsidies": "All Subsidies"
+  },
+  "edges": [
+    ["mocaf_ureas", "all_subsidies", 131100],
+    ["mocafpd_fsfci", "all_subsidies", 137207],
+    ["mocafpd_fsdpcfg", "all_subsidies", 59793],
+    ["moaafw_pmkisan", "all_subsidies", 60000],
+    ["mocaf_fert_other", "all_subsidies", -1],
+    ["moaafw_miss", "all_subsidies", 23000]
+  ],
+  "pos": {
+    "x": "l4",
+    "y": "ysubsidies"
+  }
+}

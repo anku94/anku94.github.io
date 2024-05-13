@@ -1,0 +1,169 @@
+{
+  "id": "root_g2_mor",
+  "desc": "Ministry of Railways section",
+  "nodes": {
+    "mor": "Ministry of Railways",
+    "mor_mor_cse_eeotc_oowe": "Other Ordinary Working Expenses",
+    "mor_mor_cse_eeotc_we": "Working Expenses",
+    "mor_mor_cse_cssp_ms": "Manufacturing Suspense",
+    "mor_trsrf": "Transfer to Railway Safety Fund",
+    "mor_rs": "Rolling Stock",
+    "mor_ipsjvspv": "Investment in PSU/JV/SPV etc.",
+    "mor_nl": "New Lines",
+    "mor_d": "Doubling",
+    "mor_mor_cse_cssp_ss": "Stores Suspense",
+    "mor_mor_cse_cssp_ttnif": "Transfer to National Investment Fund",
+    "mor_la": "Leased assets - Payment of Capital Component",
+    "mor_tr": "Track Renewals",
+    "mor_ca": "Customer Amenities",
+    "mor_ep": "Electrification Projects",
+    "mor_rswrobu": "Road Safety Works - Road Over/Under Bridges",
+    "mor_tfyrm": "Traffic Facilities - Yard Remodelling and Others",
+    "mor_wipu": "Workshop Including Production Units",
+    "mor_gc": "Gauge Conversion",
+    "mor_satw": "Signalling and Telecom Works",
+    "mor_mtp": "Metropolitan Transportation Projects",
+    "mor_oew": "Other Electrical Works",
+    "mor_osw": "Other Specified Works",
+    "mor_bwtwa": "Bridge Works, Tunnel Works and Approaches",
+    "mor_map": "Machinery and Plant",
+    "mor_rswlc": "Road Safety Works - Level Crossings",
+    "mor_sw": "Staff Welfare"
+  },
+  "edges": [
+    [
+      "mor",
+      "mor_mor_cse_eeotc_oowe",
+      155259
+    ],
+    [
+      "mor",
+      "mor_mor_cse_eeotc_we",
+      104830
+    ],
+    [
+      "mor",
+      "mor_mor_cse_cssp_ms",
+      55855
+    ],
+    [
+      "mor",
+      "mor_trsrf",
+      45000
+    ],
+    [
+      "mor",
+      "mor_rs",
+      37581
+    ],
+    [
+      "mor",
+      "mor_ipsjvspv",
+      34354
+    ],
+    [
+      "mor",
+      "mor_nl",
+      31850
+    ],
+    [
+      "mor",
+      "mor_d",
+      30749
+    ],
+    [
+      "mor",
+      "mor_mor_cse_cssp_ss",
+      29512
+    ],
+    [
+      "mor",
+      "mor_mor_cse_cssp_ttnif",
+      29434
+    ],
+    [
+      "mor",
+      "mor_la",
+      22229
+    ],
+    [
+      "mor",
+      "mor_tr",
+      17297
+    ],
+    [
+      "mor",
+      "mor_ca",
+      13355
+    ],
+    [
+      "mor",
+      "mor_ep",
+      8070
+    ],
+    [
+      "mor",
+      "mor_rswrobu",
+      7400
+    ],
+    [
+      "mor",
+      "mor_tfyrm",
+      6715
+    ],
+    [
+      "mor",
+      "mor_wipu",
+      4601
+    ],
+    [
+      "mor",
+      "mor_gc",
+      4600
+    ],
+    [
+      "mor",
+      "mor_satw",
+      4198
+    ],
+    [
+      "mor",
+      "mor_mtp",
+      2450
+    ],
+    [
+      "mor",
+      "mor_oew",
+      1650
+    ],
+    [
+      "mor",
+      "mor_osw",
+      1300
+    ],
+    [
+      "mor",
+      "mor_bwtwa",
+      1255
+    ],
+    [
+      "mor",
+      "mor_map",
+      740
+    ],
+    [
+      "mor",
+      "mor_rswlc",
+      700
+    ],
+    [
+      "mor",
+      "mor_sw",
+      629
+    ]
+  ],
+  "pos": {
+    "x": "l2",
+    "y": "ymor"
+  }
+}

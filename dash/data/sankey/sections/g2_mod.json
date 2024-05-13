@@ -1,0 +1,21 @@
+{
+  "id": "root_g2_mod",
+  "desc": "Ministry of Defence section",
+  "nodes": {
+    "mod": "Ministry of Defence",
+    "mod_mil_sal": "Military Salaries",
+    "mod_maint": "Maintenance of Defence Equipment",
+    "mod_coods": "Capital Outlay on Defence Services",
+    "mod_dp_cse_eeotc_paorb": "Pensions and other Retirement Benefits"
+  },
+  "edges": [
+    ["mod", "mod_mil_sal", 168334],
+    ["mod", "mod_maint", 74175],
+    ["mod", "mod_coods", 162600],
+    ["mod", "mod_dp_cse_eeotc_paorb", 138185]
+  ],
+  "pos": {
+    "x": "l2",
+    "y": "ymod"
+  }
+}

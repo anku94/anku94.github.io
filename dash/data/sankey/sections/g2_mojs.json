@@ -1,0 +1,19 @@
+{
+  "id": "root_g2_mojs",
+  "desc": "Ministry of Jal Shakti section",
+  "nodes": {
+    "mojs": "Ministry of Jal Shakti",
+    "mojs_jjm": "Jal Jeevan Mission"
+  },
+  "edges": [
+    [
+      "mojs",
+      "mojs_jjm",
+      70000
+    ]
+  ],
+  "pos": {
+    "x": "l2",
+    "y": "ymojs"
+  }
+}
