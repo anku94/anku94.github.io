@@ -1,0 +1,17 @@
+{
+  "id": "root_g2_mocaf",
+  "desc": "Ministry of Chemicals and Fertilisers section",
+  "nodes": {
+    "mocaf": "Ministry of Chemicals and Fertilisers",
+    "mocaf_ureas": "Urea Subsidy",
+    "mocaf_fert_other": "Other Fertiliser Subsidy"
+  },
+  "edges": [
+    ["mocaf", "mocaf_ureas", 131100],
+    ["mocaf", "mocaf_fert_other", 44000]
+  ],
+  "pos": {
+    "x": "l2",
+    "y": "ymocaf"
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "id": "root_g2_mortah",
+  "desc": "Ministry of Road Transport and Highways section",
+  "nodes": {
+    "mortah": "Ministry of Road Transport and Highways",
+    "mortah_nhai": "National Highways Authority of India",
+    "mortah_rw": "Road Works"
+  },
+  "edges": [
+    [
+      "mortah",
+      "mortah_nhai",
+      158000
+    ],
+    [
+      "mortah",
+      "mortah_rw",
+      107713
+    ]
+  ],
+  "pos": {
+    "x": "l2",
+    "y": "ymortah"
+  }
+}

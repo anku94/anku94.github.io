@@ -1,0 +1,14 @@
+{
+  "id": "pensions",
+  "nodes": {
+    "all_pensions": "All Pensions"
+  },
+  "edges": [
+    ["mod_dp_cse_eeotc_paorb", "all_pensions", 138185],
+    ["mof_p_cse_eeotc_paorb", "all_pensions", 68356]
+  ],
+  "pos": {
+    "x": "l4",
+    "y": "ypensions"
+  }
+}
