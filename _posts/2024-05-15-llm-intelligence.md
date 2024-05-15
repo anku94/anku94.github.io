@@ -30,10 +30,10 @@ I think LLMs are a lot more similar to _intuition_. Intuition is the mechanism b
 Intuition is a different property from _planning_ and _reasoning_. I will describe this more in the "human learning" section --- I feel that there are circular dependencies here and I can not seem to figure out a great order to put this in.
 
 Drawing an equivalence between LLMs and intuition has two interesting corollaries:
-1. It provides an explanation for why we are building massive and expensive models. This is somewhat similar to building an intuition so strong that you make up for reasoning.
+1. It provides an explanation for why we are building massive and expensive models. This is somewhat similar to building an intuition so strong that you make up for an inability to reason.
 2. It maps them to a component of the grand architecture of "human cognitive ability". This would imply that while we (as the human race) have not yet figured out the entire architecture, this is fundamentally similar to a building block.
 
-I do feel that the fundamental approach to synthesizing "capability" by "exposing" a neural network to lots of data is valid. This is in contrast to coding and program synthesis, where capability is hand-crafted line-by-line. This is not to say that the latter approaches are not valid, but that the former allows for capabilities the latter does not (and vice-versa).
+I do feel that the fundamental approach to synthesizing "capability" by "exposing" a neural network to lots of data is valid and powerful. This is in contrast to coding and program synthesis, where "capability" is hand-crafted line-by-line. This is not to say that the latter approaches are not valid, but that the former allows for capabilities the latter does not (and vice-versa), and seems to mirror aspects of the elusive human intelligence.
 ### A Model of Human Intelligence
 
 I think my point should make a lot more sense if I explain my model of human intelligence.
