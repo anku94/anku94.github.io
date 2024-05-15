@@ -3,10 +3,12 @@ layout: post
 title: Some title
 date: 2024-05-15 01:53:48-0400
 description: Some description
-tags: tag
+tags:
+  - tag
 categories: cat
 giscus_comments: true
 related_posts: false
+published: "false"
 ---
 
 Let us say that we managed to build extremely intelligent beings, with their cognitive dials turned all the way up.
