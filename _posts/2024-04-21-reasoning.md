@@ -10,7 +10,7 @@ tags:
 categories: ml
 giscus_comments: true
 related_posts: false
-published: false
+published: "false"
 ---
 So the topic for this post is a bit out of my wheelhouse. The primary purpose of this post is to flush some thoughts that are brewing in my head so that I can get back to my day job. I should reiterate that I have no particular background in these topics, nor have I done a decent job of keeping up to date on related work. This post will have no references --- it may be completely off-track, or reasonable but outdated, or exist in any other possible epistemic state. _Caveat Emptor._
 
