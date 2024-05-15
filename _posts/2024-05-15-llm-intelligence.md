@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "On Intelligence: Assessment and Direction"
+title: "On Intelligence: Assessment and Directions"
 date: 2024-05-15 01:53:05-0400
 description: How far have LLMs gotten us? What remains? What will "the rest" take?
 tags:
