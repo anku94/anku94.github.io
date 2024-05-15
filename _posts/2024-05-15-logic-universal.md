@@ -8,7 +8,7 @@ tags:
 categories: cat
 giscus_comments: true
 related_posts: false
-published: false
+published: "false"
 ---
 
 Let us say that we managed to build extremely intelligent beings, with their cognitive dials turned all the way up.
