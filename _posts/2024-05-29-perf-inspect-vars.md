@@ -84,5 +84,12 @@ Bingo --- we have the data. Other things:
 1. We can point `perf record` to a particular PID to record its values.
 2. We can process the data via say python using `perf script -g python`
 
+Something like this will show the number of occurrences in real time, but AFAIK, can not show data embedded in the probe.
+
+```bash
+perf stat -a -e psm:nobj -I 1000
+```
 ### References
 [1]: https://manpages.ubuntu.com/manpages/noble/en/man1/perf-probe.1.html
+[2]: https://developers.redhat.com/blog/2019/04/23/how-to-use-the-linux-perf-tool-to-count-software-events
+[3]: http://vger.kernel.org/~acme/perf-devconf-2015.pdf
