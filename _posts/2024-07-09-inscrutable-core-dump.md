@@ -183,4 +183,4 @@ Serialize[...] in section .text of /my/binary
 It was a buffer overflow in a serialization routine.
 
 ## Conclusions
-The battle between you and a coy acting core dump is a battle of wills. Do not blink.
+The battle between you and a coy-acting core dump is a battle of wills. Do not blink.
