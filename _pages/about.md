@@ -19,7 +19,7 @@ social: true  # includes social icons at the bottom of the page
 
 Sytems PhD Student at [CMU PDL](https://pdl.cmu.edu/People/ankush.shtml), advised by [George Amvrosiadis](http://users.ece.cmu.edu/~gamvrosi/). Migrated from [Medium](https://medium.com/@schwifty50) because it wouldn't support Markdown.
 
-My interests are all things systems. Over the course of my (long) grad school tenure, I have worked on various aspects of large scientific applications --- streaming data indexing, placement and scheduling, performance analysis and optimization, although my biggest nemesis has been debugging and tuning infiniband. Over time, I have become interested in building systems to collect, analyze, and reason about data and systems performance.
+My interests are all things systems. Over the course of my (long) grad school tenure, I have worked on various aspects of large scientific applications --- streaming data indexing, placement and scheduling, performance analysis and optimization, although my biggest nemesis has been debugging and tuning infiniband. Over time, I have become interested in building systems to collect, analyze, and reason about systems performance.
 
 As a side gig, I fuss over my 2014 Mazda 3 and my homemade ebike, geek out in the intersection of economics and data analysis, and try to optimize my nutrition profile.
 
