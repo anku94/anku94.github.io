@@ -1,4 +1,37 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.4">Jekyll</generator><link href="https://anku94.github.io/feed.xml" rel="self" type="application/atom+xml"/><link href="https://anku94.github.io/" rel="alternate" type="text/html" hreflang="en"/><updated>2024-11-08T20:35:35+00:00</updated><id>https://anku94.github.io/feed.xml</id><title type="html">Ankush Jain</title><subtitle>Personal website and blog of Ankush Jain, PhD Student at CMU PDL. Topics include systems, storage, networks, HPC etc. </subtitle><entry><title type="html">Inscrutable Coredump v. Unmoveable Grad Student</title><link href="https://anku94.github.io/blog/2024/inscrutable-core-dump/" rel="alternate" type="text/html" title="Inscrutable Coredump v. Unmoveable Grad Student"/><published>2024-07-09T19:24:13+00:00</published><updated>2024-07-09T19:24:13+00:00</updated><id>https://anku94.github.io/blog/2024/inscrutable-core-dump</id><content type="html" xml:base="https://anku94.github.io/blog/2024/inscrutable-core-dump/"><![CDATA[<p>Situation: we have a core dump that is shy to reveal its inner workings. The goal is to extract some more information from this core dump, using fancier analyses. The core dump is 1.2GB in size, so I know that there is some insight in there, it is just buried.</p> <div class="language-gdb highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">(gdb) bt</span><span class="w">
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.4">Jekyll</generator><link href="https://anku94.github.io/feed.xml" rel="self" type="application/atom+xml"/><link href="https://anku94.github.io/" rel="alternate" type="text/html" hreflang="en"/><updated>2024-11-29T18:34:44+00:00</updated><id>https://anku94.github.io/feed.xml</id><title type="html">Ankush Jain</title><subtitle>Personal website and blog of Ankush Jain, PhD Student at CMU PDL. Topics include systems, storage, networks, HPC etc. </subtitle><entry><title type="html">Notes on Web Pages and CMU Infra</title><link href="https://anku94.github.io/blog/2024/cmu-web-pages.md/" rel="alternate" type="text/html" title="Notes on Web Pages and CMU Infra"/><published>2024-11-29T18:11:12+00:00</published><updated>2024-11-29T18:11:12+00:00</updated><id>https://anku94.github.io/blog/2024/cmu-web-pages.md</id><content type="html" xml:base="https://anku94.github.io/blog/2024/cmu-web-pages.md/"><![CDATA[<p>Infra for hosting web pages on CMU web servers is a little complicated and confusing, and I waste some time figuring it out every time I need to change something. These are notes to make my life easier in the future, and may be relevant for others. This is from the perspective of an ECE student, adapt to your needs.</p> <h2 id="afs-cells">AFS Cells</h2> <p>I get to have a home directory on two CMU cells – <code class="language-plaintext highlighter-rouge">andrew.cmu.edu</code> and <code class="language-plaintext highlighter-rouge">ece.cmu.edu</code>. I don’t know how to discover all the cells you have a home directory in.</p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ssh ankushj@unix.andrew.cmu.edu # give them your andrew password
+$ pwd
+/afs/andrew.cmu.edu/usr18/ankushj
+$ cd /afs/ece.cmu.edu/usr/ankushj
+$ ls
+Permission denied
+$ aklog ece.cmu.edu
+$ ls
+top_secret_infiniband_content.txt
+$ tokens
+&lt;all the cells I'm authenticated for&gt;
+
+# random AFS commands
+$ fs listaliases
+$ fs listquota
+</code></pre></div></div> <h2 id="hosting-on-ece">Hosting on ECE</h2> <p>This is straightforward. Your <code class="language-plaintext highlighter-rouge">public_html</code> is available on <code class="language-plaintext highlighter-rouge">users.ece.cmu.edu/~ankushj</code></p> <p>ECE also respects <code class="language-plaintext highlighter-rouge">.htaccess</code></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ ls -a /path/to/ece/homedir/public_html
+.htaccess index.html
+</code></pre></div></div> <h2 id="hosting-on-andrew">Hosting on Andrew</h2> <p>This is more confusing. Target address is <code class="language-plaintext highlighter-rouge">https://www.andrew.cmu.edu/user/ankushj/</code>.</p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ ls -a /path/to/andrew/homedir/www
+.htaccess index.html
+</code></pre></div></div> <ol> <li>Andrew does not use <code class="language-plaintext highlighter-rouge">.htaccess</code>.</li> <li><code class="language-plaintext highlighter-rouge">index.html</code> is not automatically available. You have to go to <code class="language-plaintext highlighter-rouge">https://www.andrew.cmu.edu/server/publish.html</code>, type your username, hit publish, and the data gets copied to some “real hosting destination”.</li> <li><code class="language-plaintext highlighter-rouge">.unpublish</code> is a thing<sup id="fnref:1"><a href="#fn:1" class="footnote" rel="footnote" role="doc-noteref">1</a></sup></li> </ol> <h2 id="redirects">Redirects</h2> <p>On ECE, I can set up a HTTP-level redirect via <code class="language-plaintext highlighter-rouge">.htaccess</code>.</p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>RedirectMatch 301 ^/$ https://my.real.website
+</code></pre></div></div> <p>I previously tried the following, but it would redirect to <code class="language-plaintext highlighter-rouge">https://my.real.website~ankushj</code>. I am pretty sure that ChatGPT is just giving me a stupid redirect command, but the version above works and the version below does not — that’ll have to do for now.</p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Redirect 301 / https://my.real.website
+</code></pre></div></div> <p>From Andrew, I had to set up a HTTP redirect.</p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+  &lt;head&gt;
+        &lt;meta http-equiv="refresh" content="0; url=https//my.real.website"&gt;
+            &lt;title&gt;Redirecting...&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+        &lt;p&gt;If you are not redirected, &lt;a href="https://my.real.website"&gt;click here&lt;/a&gt;.&lt;/p&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+</code></pre></div></div> <h2 id="troubleshooting">Troubleshooting</h2> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># Permissions
+$ fs sa www system:anyuser rl
+</code></pre></div></div> <h2 id="references">References</h2> <div class="footnotes" role="doc-endnotes"> <ol> <li id="fn:1"> <p>https://www.cmu.edu/computing/services/comm-collab/websites/user-course-web/how-to/publish.html <a href="#fnref:1" class="reversefootnote" role="doc-backlink">&#8617;</a></p> </li> </ol> </div>]]></content><author><name></name></author><category term="web"/><category term="web"/><summary type="html"><![CDATA[Dealing with AFS, cells, permissions etc.]]></summary></entry><entry><title type="html">Inscrutable Coredump v. Unmoveable Grad Student</title><link href="https://anku94.github.io/blog/2024/inscrutable-core-dump/" rel="alternate" type="text/html" title="Inscrutable Coredump v. Unmoveable Grad Student"/><published>2024-07-09T19:24:13+00:00</published><updated>2024-07-09T19:24:13+00:00</updated><id>https://anku94.github.io/blog/2024/inscrutable-core-dump</id><content type="html" xml:base="https://anku94.github.io/blog/2024/inscrutable-core-dump/"><![CDATA[<p>Situation: we have a core dump that is shy to reveal its inner workings. The goal is to extract some more information from this core dump, using fancier analyses. The core dump is 1.2GB in size, so I know that there is some insight in there, it is just buried.</p> <div class="language-gdb highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">(gdb) bt</span><span class="w">
 </span>#0<span class="w">  </span><span class="mh">0x00007fbaa4653c30</span><span class="w"> </span>in<span class="w"> </span>??<span class="w"> </span><span class="p">()</span><span class="w">
 </span>#1<span class="w">  </span><span class="mh">0x0000000000000000</span><span class="w"> </span>in<span class="w"> </span>??<span class="w"> </span><span class="p">()</span><span class="w">
 </span></code></pre></div></div> <p>Since we have an intact <code class="language-plaintext highlighter-rouge">$pc</code> (which refers to <code class="language-plaintext highlighter-rouge">%rip</code>), we can figure out the instructions it was executing.</p> <div class="language-gdb highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">(gdb) disassemble $pc-20,$pc+20</span><span class="w">
@@ -236,103 +269,4 @@ Dynamic section at offset 0x5c60 contains 31 entries:
 <span class="nb">sudo chmod </span>g+rw /sys/kernel/debug/tracing/uprobe_events
 
 </code></pre></div></div> <h3 id="probing-internal-library-functions">Probing Internal Library Functions</h3> <p>You’re going through the source code of your library, and there’s a specific internal function you want to profile. But it’s not listed in <code class="language-plaintext highlighter-rouge">perf probe -x exec -F</code>. It probably isn’t listed in <code class="language-plaintext highlighter-rouge">nm -a exec</code> either. If your functions are using this:</p> <div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">static</span> <span class="n">__inline__</span> <span class="n">FN</span> <span class="nf">__attribute__</span><span class="p">((</span><span class="n">always_inline</span><span class="p">));</span>
-</code></pre></div></div> <p>There’s no way they’re making it to the compiled output. This must be deleted. With <code class="language-plaintext highlighter-rouge">__inline__</code> and <code class="language-plaintext highlighter-rouge">inline</code>, things vary. There are two things I needed to get gcc to preserve my symbols up to the final <code class="language-plaintext highlighter-rouge">.so</code> object:</p> <ol> <li>Remove <code class="language-plaintext highlighter-rouge">always_inline</code> from code</li> <li>Add <code class="language-plaintext highlighter-rouge">-fvisibility=default</code> to my compiler flags</li> <li>Add <code class="language-plaintext highlighter-rouge">-fno-inline</code> to counter the anti-debugging forces channeled by <code class="language-plaintext highlighter-rouge">-O3</code></li> </ol> <p>More references:</p> <ul> <li><a href="https://minervadb.xyz/wp-content/uploads/2020/12/Dynamic-Tracing-for-Finding-and-Solving-MySQL-Performance-Problems-on-Linux-MinervaDB-Database-Platforms-Virtual-Conference-2020.pdf">MinervaDB</a></li> <li><a href="https://www.spinics.net/lists/linux-perf-users/msg02465.html">MailingList</a></li> </ul>]]></content><author><name></name></author><category term="systems"/><category term="perf"/><summary type="html"><![CDATA[Using perf probes for dynamic instrumentation]]></summary></entry><entry><title type="html">Playing With Perf Probes</title><link href="https://anku94.github.io/blog/2023/perf-probes/" rel="alternate" type="text/html" title="Playing With Perf Probes"/><published>2023-09-08T19:56:00+00:00</published><updated>2023-09-08T19:56:00+00:00</updated><id>https://anku94.github.io/blog/2023/perf-probes</id><content type="html" xml:base="https://anku94.github.io/blog/2023/perf-probes/"><![CDATA[<p>This post demonstrates the power of perf probes, using the following example C code. Let’s say we’d like to verify that usleep actually sleeps for the claimed amount of time. This is the output we can get.</p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Sleep Arg: 0 us, Sleep Time: 92 us
-Sleep Arg: 100 us, Sleep Time: 167 us
-Sleep Arg: 200 us, Sleep Time: 262 us
-Sleep Arg: 300 us, Sleep Time: 370 us
-Sleep Arg: 400 us, Sleep Time: 468 us
-Sleep Arg: 500 us, Sleep Time: 584 us
-Sleep Arg: 600 us, Sleep Time: 684 us
-Sleep Arg: 700 us, Sleep Time: 784 us
-Sleep Arg: 800 us, Sleep Time: 885 us
-</code></pre></div></div> <p>Code for this exercise.</p> <div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp">
-#include</span> <span class="cpf">&lt;unistd.h&gt;</span><span class="cp">
-</span>
-<span class="kt">int</span> <span class="nf">add_with_sleep</span><span class="p">(</span><span class="kt">int</span> <span class="n">a</span><span class="p">,</span> <span class="kt">int</span> <span class="n">b</span><span class="p">,</span> <span class="kt">int</span> <span class="n">sleep_us</span><span class="p">)</span> <span class="p">{</span>
-  <span class="n">usleep</span><span class="p">(</span><span class="n">sleep_us</span><span class="p">);</span>
-  <span class="k">return</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="p">;</span>
-
-<span class="p">}</span>
-
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
-  <span class="kt">int</span> <span class="n">ret</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-  <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">100</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
-    <span class="n">ret</span> <span class="o">+=</span> <span class="n">add_with_sleep</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">i</span><span class="o">*</span><span class="n">i</span><span class="p">,</span> <span class="n">i</span> <span class="o">*</span> <span class="mi">100</span><span class="p">);</span>
-    <span class="n">printf</span><span class="p">(</span><span class="s">"I: %d, Ret: %d</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">ret</span><span class="p">);</span>
-  <span class="p">}</span>
-
-  <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
-<span class="p">}</span>
-</code></pre></div></div> <p>Series of commands. You can run them line by line.</p> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#!/usr/bin/env bash</span>
-
-setup<span class="o">()</span> <span class="o">{</span>
-  <span class="nb">echo</span> <span class="nt">-1</span> | <span class="nb">sudo tee</span> /proc/sys/kernel/perf_event_paranoid
-<span class="o">}</span>
-
-run<span class="o">()</span> <span class="o">{</span>
-  gcc <span class="nt">-g</span> <span class="nt">-o</span> code code.c
-  ./code
-
-  <span class="nb">alias </span><span class="nv">perf</span><span class="o">=</span>~/.local/bin/perf
-
-  <span class="c"># -g enables call graph</span>
-  perf record <span class="nt">-g</span> ./code
-
-  <span class="c"># DWARF enables better stack unwinding</span>
-  perf record <span class="nt">-g</span> <span class="nt">--call-graph</span><span class="o">=</span>dwarf ./code
-  perf report <span class="nt">--stdio</span>
-
-  <span class="c"># Show probe-able functions in binary</span>
-  perf probe <span class="nt">-x</span> ./code <span class="nt">-F</span>
-
-  <span class="c"># Show probe-able function lines in binary</span>
-  perf probe <span class="nt">-x</span> ./code <span class="nt">-L</span> add_with_sleep
-
-  <span class="c"># Show probe-able function lines in binary</span>
-  perf probe <span class="nt">-x</span> ./code <span class="nt">-L</span> add_with_sleep:2
-
-  <span class="c"># Show available variables at some point</span>
-  perf probe <span class="nt">-x</span> ./code <span class="nt">-V</span> add_with_sleep:2
-
-  <span class="c"># Add probes for function entry and exit. At entry, we also capture the arg.</span>
-  <span class="c"># If the arg is say a string, we can specify varname:string to deref the str ptr.</span>
-  <span class="nb">sudo </span>perf probe <span class="nt">-x</span> ./code <span class="nt">--add</span><span class="o">=</span><span class="s1">'add_with_sleep:0 sleep_us'</span>
-  <span class="nb">sudo </span>perf probe <span class="nt">-x</span> ./code <span class="nt">--add</span><span class="o">=</span><span class="s1">'add_with_sleep%return'</span>
-
-  <span class="nb">sudo </span>perf record <span class="nt">-e</span> probe_code:add_with_sleep <span class="nt">-e</span> probe_code:add_with_sleep__return ./code
-
-  <span class="c"># This will generate a python script called perf-script.py</span>
-  <span class="c"># Modify its entry and exit functions to print deltas between</span>
-  <span class="c"># Entry and Exit timesteps</span>
-  perf script <span class="nt">-g</span> python
-
-  <span class="nb">sudo chown</span> <span class="si">$(</span><span class="nb">whoami</span><span class="si">)</span> perf.data
-  perf script <span class="nt">-s</span> perf-script.py | less
-
-  <span class="c">## Cleanup ##</span>
-
-  <span class="c"># Should show two events</span>
-  <span class="nb">sudo </span>perf probe <span class="nt">-l</span>
-  <span class="nb">sudo </span>perf probe <span class="nt">-d</span> <span class="s1">'add_with_sleep'</span>
-  <span class="nb">sudo </span>perf probe <span class="nt">-d</span> <span class="s1">'add_with_sleep%return'</span>
-  <span class="c"># Should show zero events</span>
-  <span class="nb">sudo </span>perf probe <span class="nt">-l</span>
-
-
-<span class="o">}</span>
-
-run
-</code></pre></div></div> <p><code class="language-plaintext highlighter-rouge">perf script -g python</code> will generate a file that looks something like this. Incorporate these changes into the script.</p> <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">start</span> <span class="o">=</span> <span class="mi">0</span>
-<span class="n">start_arg</span> <span class="o">=</span> <span class="mi">0</span>
-
-<span class="k">def</span> <span class="nf">probe_code__add_with_sleep</span><span class="p">(</span><span class="n">event_name</span><span class="p">,</span> <span class="n">context</span><span class="p">,</span> <span class="n">common_cpu</span><span class="p">,</span> <span class="p">...):</span>
-    <span class="k">global</span> <span class="n">start</span><span class="p">,</span> <span class="n">start_arg</span>
-    <span class="n">start</span> <span class="o">=</span> <span class="p">(</span><span class="n">common_secs</span> <span class="o">*</span> <span class="mf">1e9</span><span class="p">)</span> <span class="o">+</span> <span class="n">common_nsecs</span>
-    <span class="n">start_arg</span> <span class="o">=</span> <span class="n">sleep_us</span>
-
-<span class="k">def</span> <span class="nf">probe_code__add_with_sleep__return</span><span class="p">(</span><span class="n">event_name</span><span class="p">,</span> <span class="n">context</span><span class="p">,</span> <span class="n">common_cpu</span> <span class="p">...):</span>
-    <span class="k">global</span> <span class="n">start</span><span class="p">,</span> <span class="n">start_arg</span>
-    <span class="n">end</span> <span class="o">=</span> <span class="p">(</span><span class="n">common_secs</span> <span class="o">*</span> <span class="mf">1e9</span><span class="p">)</span> <span class="o">+</span> <span class="n">common_nsecs</span>
-    <span class="n">time_usec</span> <span class="o">=</span> <span class="p">(</span><span class="n">end</span> <span class="o">-</span> <span class="n">start</span><span class="p">)</span> <span class="o">/</span> <span class="mf">1e3</span>
-    <span class="nf">print</span><span class="p">(</span><span class="sh">"</span><span class="s">Sleep Arg: {:.0f} us, Sleep Time: {:.0f} us</span><span class="sh">"</span><span class="p">.</span><span class="nf">format</span><span class="p">(</span><span class="n">start_arg</span><span class="p">,</span> <span class="n">time_usec</span><span class="p">))</span>
-</code></pre></div></div> <h3 id="credits">CREDITS</h3> <ol> <li><a href="https://bristot.me/using-perf-probe-to-measure-execution-time-of-user-space-code-on-linux/">https://bristot.me/using-perf-probe-to-measure-execution-time-of-user-space-code-on-linux/</a></li> <li><a href="http://notes.secretsauce.net/notes/2019/12/16_c-probes-with-perf.html">http://notes.secretsauce.net/notes/2019/12/16_c-probes-with-perf.html</a></li> <li><a href="https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/9/html/monitoring_and_managing_system_status_and_performance/creating-custom-circular-buffers-to-collect-specific-data-with-perf_monitoring-and-managing-system-status-and-performance">https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/9/html/monitoring_and_managing_system_status_and_performance/creating-custom-circular-buffers-to-collect-specific-data-with-perf_monitoring-and-managing-system-status-and-performance</a></li> <li><a href="http://blog.vmsplice.net/2011/03/how-to-use-perf-probe.html">http://blog.vmsplice.net/2011/03/how-to-use-perf-probe.html</a></li> <li><a href="http://oliveryang.net/2016/07/linux-perf-tools-tips/">http://oliveryang.net/2016/07/linux-perf-tools-tips/</a></li> </ol>]]></content><author><name></name></author><category term="systems"/><category term="perf"/><summary type="html"><![CDATA[Using perf probes for dynamic instrumentation]]></summary></entry></feed>
+</code></pre></div></div> <p>There’s no way they’re making it to the compiled output. This must be deleted. With <code class="language-plaintext highlighter-rouge">__inline__</code> and <code class="language-plaintext highlighter-rouge">inline</code>, things vary. There are two things I needed to get gcc to preserve my symbols up to the final <code class="language-plaintext highlighter-rouge">.so</code> object:</p> <ol> <li>Remove <code class="language-plaintext highlighter-rouge">always_inline</code> from code</li> <li>Add <code class="language-plaintext highlighter-rouge">-fvisibility=default</code> to my compiler flags</li> <li>Add <code class="language-plaintext highlighter-rouge">-fno-inline</code> to counter the anti-debugging forces channeled by <code class="language-plaintext highlighter-rouge">-O3</code></li> </ol> <p>More references:</p> <ul> <li><a href="https://minervadb.xyz/wp-content/uploads/2020/12/Dynamic-Tracing-for-Finding-and-Solving-MySQL-Performance-Problems-on-Linux-MinervaDB-Database-Platforms-Virtual-Conference-2020.pdf">MinervaDB</a></li> <li><a href="https://www.spinics.net/lists/linux-perf-users/msg02465.html">MailingList</a></li> </ul>]]></content><author><name></name></author><category term="systems"/><category term="perf"/><summary type="html"><![CDATA[Using perf probes for dynamic instrumentation]]></summary></entry></feed>
