@@ -17,7 +17,6 @@ From my understanding, all of the changes in RoCEv2 were necessitated because it
 
 # Credit-based Flow Control in Infiniband
 This is all based off slides here: [^5].
-
 ## Virtual Lanes and Service Levels
 Credits are maintained per-VL on each HCA. VLs/SLs are technically different but equivalent for now. They are priority classes --- Infiniband supports up to 16. VL15 is reserved for subnet management traffic, while the others are available for regular data. The difference is that the application requests service levels, and the SL-VL mapping is a management decision handled presumably by the subnet manager.
 ## Basic Numbers
@@ -33,6 +32,12 @@ There are 3 main terms: `ABR`, `FCCL`, `FCTBS`.
 `FCCL` - `FCTBS`: remaining credits for the sender. A send will be permitted if the size is smaller than this limit.
 # Flow Control vs Congestion Control
 Flow control makes infiniband largely and inherently lossless. Rare occasions that cause packet corruption etc. may require retransmissions. The fabric will do retransmissions for you if `Reliable Connected` was requested. CBFC kicks in regardless of whether you use RC or UC or UD. I haven't looked into how retransmissions for `RC` are managed.
+
+Infiniband also has congestion control on top of flow control. Why both need to exist is not entirely clear to me yet. What I do know is that IB employs some variant of `ECN (Explicit Congestion Notification)` to help detect congestion (`FECN` and `BECN`). I don't know what the endpoints do in response to ECNs.
+# Questions For Myself
+- Why is it hard to retrofit CBFC on to ethernet?
+- Why don't all datacenter fabrics use CBFC?
+- How does CBFC compare to loss-based congestion control.
 # References
 
 [^1]: UltraEthernet: Overview of and Motivation for the Forthcoming Ultra Ethernet Consortium Specification, , , 
