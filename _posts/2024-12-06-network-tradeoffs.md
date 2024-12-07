@@ -9,6 +9,8 @@ categories: cat
 giscus_comments: true
 related_posts: false
 ---
+[Part 1 here](https://ankushja.in/blog/2024/credits-flow-congestion/).
+
 This post will explore the following thesis:
 1. All networks and variants are tradeoffs.
 2. If there are tradeoffs, there is no permanent winning. You are always tuning to chase _the window_.
