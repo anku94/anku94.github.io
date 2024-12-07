@@ -49,6 +49,7 @@ What are the takeaways for systems?
 - We are destined to tune. We should plan for that.
 - It would be nice if we understood systems in terms of their coverage of design space.
 - Nothing in this discussion rules out the existence of systems that cover strictly more of the design space than others. Probably someone has and/or will prove that certain aspects are pareto-optimal. But it's still a small sheet over massive legs.
+
 ## Chasing The Global Optima
 Network sharing and scheduling mechanisms are probably by far the most well-studied and deployed examples of a distributed system trying to construct/reach a global optimum, and both mathematical and practical arguments of the challenges that comes with.
 
