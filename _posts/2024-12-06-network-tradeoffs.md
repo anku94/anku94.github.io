@@ -4,8 +4,8 @@ title: Are All Networks Just Tradeoffs?
 date: 2024-12-06 19:58:30-0500
 description: Or, are we destined to tune?
 tags:
-  - tag
-categories: cat
+  - networks
+categories: networks
 giscus_comments: true
 related_posts: false
 ---
