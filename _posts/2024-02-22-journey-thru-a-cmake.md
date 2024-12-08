@@ -1,9 +1,11 @@
 ---
 layout: post
-title: Journey Through A CMake Dependency Problem
+title: Journey Through a CMake Dependency Problem
 date: 2024-02-22 15:17:06-0500
 description: Or how to craft artisan ELF files with exquisitely detailed metadata
-tags: systems, cmake
+tags:
+  - systems
+  - cmake
 categories: systems
 giscus_comments: true
 related_posts: false
