@@ -1,6 +1,6 @@
 ---
 layout: post
-title: An Exercise In Debugging When The Kernel Is Implicated
+title: An Exercise in Debugging When the Kernel Is Implicated
 date: 2024-04-15 16:22:10-0400
 description: The problem here was being caused by a kernel module misbehaving because a remote service was misbehaving.
 tags:
