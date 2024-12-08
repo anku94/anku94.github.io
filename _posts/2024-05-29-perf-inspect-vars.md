@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Using perf probes to intercept variables
+title: Using Perf Probes to Intercept Variables
 date: 2024-05-29 18:12:07-0400
 description: Intercept process variables without having to modify it
 tags:
@@ -13,7 +13,7 @@ related_posts: false
 
 This is a case study in using perf probes to monitor the values of some variable from a process, without having to modify its code.
 
-We are interested in monitoring the number of objects allocated by a library called `psm`. We know that they are available in a function called `psm_mpool_get`. The object available there is called `mp` and it has members `mp_num_obj` and `mp_num_obj_inuse` that we want to monitor.
+We are interested in monitoring the number of objects allocated by a library called `psm`. We know that they are available in a function called `psmmpool_get`. The object available there is called `mp` and it has members `mp_num_obj` and `mp_num_obj_inuse` that we want to monitor.
 
 First, set up your permissions.
 
