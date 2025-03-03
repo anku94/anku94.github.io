@@ -11,12 +11,13 @@ giscus_comments: true
 related_posts: false
 ignore: false
 ---
-This is just me making some quick notes on the 3FS Parallel Filesystem from Deepseek. Caveat that while I have opinions on all systems, filesystems is strictly not my day job and I have to go back and think about a bunch of things and it doesn't quite work, and this post will likely have a bunch of mistakes.
+This is just me making some quick notes on the 3FS Parallel Filesystem from Deepseek[^1]. Caveat that while I have opinions on all systems, filesystems is strictly not my day job and I have to go back and think about a bunch of things and it doesn't quite work, and this post will likely have a bunch of mistakes.
 # Services in 3FS
 - Cluster manager: highly available, manages membership, config etc (uses zookeeper?)
 - Metadata service: uses FoundationDB
 - Storage service (chunk store?)
 - Client (two implementations: FUSE-based, and a more performant one.)
+
 # Metadata in 3FS
 
 ### The Ongoing Metadata Debate
@@ -55,7 +56,7 @@ They use FUSE for clients, so as to not deal with debugging kernel panics. They 
 ## Misc
 
 - Codebase is mostly C++ with some Rust.
-- They use `P` to verify their protocols. `P` is apparently a formal verification language for event-driven distributed services. Very cool!
+- They use `P`[^2] to verify their protocols. `P` is apparently a formal verification language for event-driven distributed services. Very cool!
 - They seem to use `flatbuffers` for serdes and their own RDMA/RPC wrappers on top of the `verbs` interface. There's a lot of code there and I just briefly skimmed through it.
 - They heavily use `folly`, Facebook's assorted library of C++ abstractions (including coroutines).
 
