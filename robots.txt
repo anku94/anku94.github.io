@@ -1,4 +1,4 @@
 User-agent: *
 Disallow:
 
-Sitemap: https://anku94.github.io/sitemap.xml
+Sitemap: https://ankushja.in/sitemap.xml
