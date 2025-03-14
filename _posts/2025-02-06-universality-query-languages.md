@@ -46,7 +46,7 @@ There exist data models (such as multidimensional array-based scientific data) t
 
 The question I am trying to answer is: what is the set of ideas that lead you to the perfect operators for these domains? Do they exist? Are they in conflict with relational algebra?  Or can they be members of the extended family?
 
-_Note to self: read referenced papers[^1,2,3]_
+_Note to self: read referenced papers[^1][^2][^3]
 ## References
 [^1]: SciQL, a query language for science applications, Proceedings of the EDBT/ICDT 2011 Workshop on Array Databases, 2011, https://dl.acm.org/doi/10.1145/1966895.1966896
 [^2]: MeshSQL: The query language for simulation mesh data, Information Sciences, 2004, https://www.sciencedirect.com/science/article/pii/S0020025503001981
