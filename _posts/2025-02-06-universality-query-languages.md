@@ -15,6 +15,8 @@ This is an initial quick draft of this line of thought, written 16 hours before 
 Goal for this post: let us try justifying SQL. Why it exists, why is it in a specific form etc.
 ## SQL vs Relational Algebra
 I think SQL is made-up and non-essential. It is syntactic sugar over relational algebra. Other declarative interfaces may be more convenient abstractions --- I personally prefer dataframes and chaining of expressions.
+
+If you think of the query plan as a dataflow tree leading up to a root, SQL is essentially a traversal over that tree, like in-order, pre-order etc. The order SQL follows, specifically, may be called a _Weird Order Traversal_ (or _WAT_).
 ## On the Universality of Relational Algebra?
 Okay so why does relational algebra exist in the form it does?
 
@@ -46,7 +48,7 @@ There exist data models (such as multidimensional array-based scientific data) t
 
 The question I am trying to answer is: what is the set of ideas that lead you to the perfect operators for these domains? Do they exist? Are they in conflict with relational algebra?  Or can they be members of the extended family?
 
-_Note to self: read referenced papers[^1][^2][^3]
+_Note to self: read referenced papers_ [^1][^2][^3]
 ## References
 [^1]: SciQL, a query language for science applications, Proceedings of the EDBT/ICDT 2011 Workshop on Array Databases, 2011, https://dl.acm.org/doi/10.1145/1966895.1966896
 [^2]: MeshSQL: The query language for simulation mesh data, Information Sciences, 2004, https://www.sciencedirect.com/science/article/pii/S0020025503001981
