@@ -1,6 +1,6 @@
 ---
 layout: post
-title: The Role of Prediction and Adaptation in Decisions
+title: Prediction and Adaptation in Decisions
 date: 2025-07-26 16:59:58
 description: How to model decision-making itself?
 tags:
