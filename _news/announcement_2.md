@@ -5,4 +5,4 @@ inline: true
 related_posts: false
 ---
 
-A policy/data viz experiment - broken links fixed ([datatree](https://anku94.github.io/dash/datatree/), [sankey](https://anku94.github.io/dash/sankey/))
+A policy/data viz experiment: broken links fixed ([datatree](https://anku94.github.io/dash/datatree/), [sankey](https://anku94.github.io/dash/sankey/))

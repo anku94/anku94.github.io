@@ -5,4 +5,4 @@ inline: true
 related_posts: false
 ---
 
-[CARP]({{ "/projects/carp/" | relative_url }}) was published to SC24. Come to the [talk]({{ "https://sc24.conference-program.com/presentation/?id=pap461&sess=sess376" }}) on Nov 21 if you are attending!
+[CARP]({{ "/projects/carp/" | relative_url }}) was published at SC24. Come to the [talk]({{ "https://sc24.conference-program.com/presentation/?id=pap461&sess=sess376" }}) on Nov 21 if you are attending!
