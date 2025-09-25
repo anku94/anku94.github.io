@@ -17,7 +17,9 @@ selected_papers: false # includes a list of papers marked as "selected={true}"
 social: true  # includes social icons at the bottom of the page
 ---
 
-Sytems PhD Student at [CMU PDL](https://pdl.cmu.edu/People/ankush.shtml), advised by [George Amvrosiadis](http://users.ece.cmu.edu/~gamvrosi/). Migrated from [Medium](https://medium.com/@schwifty50) because it wouldn't support Markdown.
+Systems PhD Student at [CMU PDL](https://pdl.cmu.edu/People/ankush.shtml), advised by [George Amvrosiadis](http://users.ece.cmu.edu/~gamvrosi/). Migrated from [Medium](https://medium.com/@schwifty50) because it wouldn't support Markdown.
+
+**2025/09/25**: _I am on the industry job market. Relevant keywords: HPC/ML observability, performance, and trace analytics, tuning/RDMA/infiniband, data engineering, OLAP, streaming data systems. Please [reach out](https://ankushja.in/cv/) if you are hiring in any of these spaces._
 
 My interests are all things systems. Over the course of my (long) grad school tenure, I have worked on various aspects of large scientific applications --- streaming data indexing, placement and scheduling, performance analysis and optimization, although my biggest nemesis has been debugging and tuning infiniband. Over time, I have become interested in building systems to collect, analyze, and reason about systems performance.
 
