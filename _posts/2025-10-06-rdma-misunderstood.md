@@ -12,6 +12,8 @@ ignore: false
 
 In this post, I explore the thesis that we keep redoing certain things in fabric design because the history is not properly documented. It is an ambitious claim, and the understanding I need to build to make it comprehensively and conclusively remains elusive, and this is an attempt at a sloppier fail-fast version. Let me reiterate the _fail-fast_ bit: this post was written with an appetite for my own hat. It also forms a loose series with [this](https://ankushja.in/blog/2023/infiniband-flavors/), [this](https://ankushja.in/blog/2024/network-tradeoffs/), and [this](https://ankushja.in/blog/2024/credits-flow-congestion/).
 
+Edit: _I prompt-engineered some LLMs into generating [this](https://users.ece.cmu.edu/~ankushj/cbfc.pdf). Same reliability caveats as the rest of the post apply._
+
 ## Losslessless: The Bedrock of RDMA
 
 RDMA originated on a natively lossless fabric (Infiniband). Since then, we have tried to graft it into inherently lossy fabrics, with brittle outcomes. We like losslessness for the same reason we like strong consistency: it is nice and simple if things just work and are predictable.
