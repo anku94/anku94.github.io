@@ -40,30 +40,34 @@ Dislikes:
 
 ### Case Study: QLogic
 
-QLogic already had this insight 15 years [ago](https://www.youtube.com/watch?v=E0uSl_gyZnI). No one knows about QLogic, and I think it is unfortunate. We keep bringing up a debate that we do not understand the history of.
+QLogic already had this insight 15 years [ago](https://www.youtube.com/watch?v=E0uSl_gyZnI). QLogic is not super well known, and I think it is unfortunate. Many aspects of their approach are highly relevant to some debates we have had since.
 
-QLogic Truescale was the precursor to Intel Omnipath, which was the precursor to Cornelis Networks. Instead of offload, they wanted _onload_: CPU-mediated communication for scalability. It was a verbs-compliant fabric that natively spoke a different interface called [psm](https://github.com/pdlfs/psm).
+QLogic Truescale was the precursor to Intel Omnipath, which was the precursor to Cornelis Networks. Instead of offload to a smart NIC, they wanted _onload_: CPU-mediated communication for scalability. It was a verbs-compliant fabric that natively spoke a different interface called [psm](https://github.com/pdlfs/psm).
 
-PSM was a messaging-oriented fabric. I think of it as RDMA UD with variable message sizes. It injected small payloads inline, and large payloads were DMA'ed on both the send and receive paths using transient connection mechanisms called TID/TIDflows.
+Truescale was a messaging-oriented fabric. I think of it as RDMA UD with large datagram sizes. It injected small payloads inline into a packet, and large payloads were DMA'ed on both the send and receive paths using transient connection mechanisms called TID/TIDflows.
 
-From what I understand, PSM had CBFC but no _link-level retry_ (LLR). It had a software-based go-back-N-style recovery. I think link-level retry requires a smarter HCA, which they were trying to avoid, at least for the first generation. Software-based retries in that fabric do add an extraordinary amount of jitter because of arbitrary timeouts, but they're triggered because of some other fabric/driver bugs, and not because of packet drops.
+From what I understand, PSM had CBFC but no _link-level retry_ (LLR). It had a software-based go-back-N-style recovery. I think link-level retry requires a smarter HCA, which they were trying to avoid, at least for the first generation. I have observed software-based retries in that fabric to add an extraordinary amount of jitter, when triggered, but it is triggered by some residual bugs and high timeouts, and not by packet drops.
 
 ### Case Study: SRD in Amazon EFA
 
 The variable-sized datagram design point remains compelling. Amazon built a fabric called _Elastic Fabric Adapter (EFA)_ that presumably adds LLR to UD. I don't know much about it so I'll keep it short.
 
-## RDMA vs RPCs: A False Dichotomy
+## RDMA vs RPCs: A False Dichotomy?
 
 I'm probably wading into a decade-old debate at this point, but it's not my fault that I was just a swaddling infant a decade ago.
 
-Let us take eRPC[^1], an iconic paper at this point. The argument I will make is that eRPC implements Infiniband in software over lossy ethernet, and while a solid step forward for lossy ethernet, its design just strengthens the argument for _real RDMA/infiniband_.
+Let us take eRPC[^1], an iconic paper at this point. The argument I will explore is whether eRPC implements Infiniband in software over lossy ethernet, and whether while a solid step forward for lossy ethernet, its design just strengthens the argument for _real RDMA/infiniband_.
 
-1. eRPC likes losslessness. They create those conditions by having session credits and limiting dispatched traffic to network BDP. Session credits are basically end-to-end CBFC (also tried in [^3]), and limiting dispatched traffic is the equivalent of the software layer making a decision that the flow control layer would've made for you anyway in a lossless fabric.
-2. eRPC likes contiguous message buffers, an event loop for short messages, and memcpy'ed contiguous buffers for large messages, with memcpy orchestrated by CPU. These are just RDMA semantics, but using CPU cycles instead.
+1. eRPC likes losslessness. They create those conditions by having session credits and limiting dispatched traffic to network BDP. Session credits resemble an end-to-end version of CBFC, something also tried in [^3].
+2. eRPC likes contiguous message buffers, an event loop for short messages, and memcpy'ed contiguous buffers for large messages, with memcpy orchestrated by CPU. This feels very close to the workflow I employ in my current codebase using the RDMA-capable Mercury RPC library, except using CPU cycles instead of RDMA.
 
-I think infiniband already exists, enabling both losslessness and CPU cycle-saving DMA. I think scalability issues as criticisms of infiniband also exist already, with in-production DMA-based fabrics that do not share those concerns. libfabric RxD is an example of multiplexing over UD in software on top of plain old infiniband.
+I wonder what is the difference between "_we found a lossless regime in the network and designed a system optimized for a lossless common-case_" and "_we engineered a lossless regime in the network, and this proves the value of a genuinely lossless fabric._"
 
-Next, I think RDMA doesn't preclude the ability to do two-sided communication. The Mercury RPC library[^5], with providers for libfabric etc, provides both messaging-style semantics for small messages and verbs-enabled RDMA via a _bulk_ interface for large messages.
+I also wonder about the value of pushing retries to the application layer when the ultimate behavior you want is lossless. There are plenty of applications that tolerate lossiness end-to-end, and it makes sense for the lowest common denominator to not include retries for general-purpose networks. But datacenters are a controlled high-density environment, and maybe it is easier to permit lossy flows as a second-class citizen in a lossless fabric than the other way round?
+
+Also, I think scalability criticisms of infiniband are hardly the killer argument they are made out to be. Truescale is an example of a production fabric that already solved those challenges, and software-level solutions such as `RxD` exist in libfabric (multiplexing RDMA over UD). RDMA is not infiniband, and there are multiple CBFC-based approaches to lossless fabrics.
+
+Next, I think RDMA doesn't preclude the ability to do two-sided communication. I think it is not completely accurate to think of RDMA as disaggregated memory. That is, RDMA is not CXL. An RDMA-capable node is essentially still a request/response-based server. Maybe it is useful to mentally decouple operations into metadata and data, and use RDMA for the data path (common criticism is unnecessary RTTs for pointer chasing). Mercury[^5], with providers for libfabric etc, provides both messaging-style semantics for small messages and verbs-enabled RDMA via a _bulk_ interface for large messages.
 
 Finally, I think the end-to-end argument does not preclude merging of layers for performance. I think it is a neat guiding principle for what to do in the absence of competing concerns, but it does not preemptively override the presence of competing concerns.
 
@@ -80,3 +84,5 @@ Side note: do you know PCIe uses CBFC? I think the gap between an interconnect, 
 [^3]: Harmony: A Congestion-free Datacenter Architecture, _21st USENIX Symposium on Networked Systems Design and Implementation (NSDI 24)_, https://www.usenix.org/conference/nsdi24/presentation/agarwal-saksham
 [^4]: Intel® Omni-Path Architecture Technology Overview, https://old.hoti.org/hoti23/slides/rimmer.pdf
 [^5]: Mercury: Enabling remote procedure call for high-performance computing, _2013 IEEE International Conference on Cluster Computing (CLUSTER)_, http://ieeexplore.ieee.org/document/6702617/
+
+_Updated on 20251008 to present a version that ages better._
