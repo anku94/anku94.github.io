@@ -31,6 +31,7 @@ Let us disaggregate infiniband into a series of features.
 Likes:
 1. Everyone likes CBFC[^1,2,3]
 2. Everyone likes the performance benefits of RDMA, if not the complexity of memory registration and coding verbs.
+3. We like the cache-friendy access patterns enabled by verbs as an interface. The TCP/IP stack, as implemented, has been noted to force cache-unfriendly behavior, creating utilization bubbles in the precious PCIe link[^6]. _verbs_, used along with capabilities such as _SRQs_, _multi-receive_, and _hugepages_ enable intrinsically contiguous accesses.
 
 Dislikes:
 1. Everyone dislikes its difficult relationship with the broader datacenter network. It is not a part of the broader network, but a separate sub-network like NVLink or CXL.
@@ -75,7 +76,7 @@ Finally, I think the end-to-end argument does not preclude merging of layers for
 
 I want to understand HPE Slingshot and UltraEthernet better, and maybe also start dabbling with CXL.
 
-Side note: do you know PCIe uses CBFC? I think the gap between an interconnect, a fabric, and a network is smaller than we think, and loss-based mechanisms receive more academic attention than they should.
+Side note: do you know PCIe uses CBFC? I think the gap between an interconnect, a fabric, and a network is smaller than we think!
 
 ## References
 
@@ -84,5 +85,6 @@ Side note: do you know PCIe uses CBFC? I think the gap between an interconnect, 
 [^3]: Harmony: A Congestion-free Datacenter Architecture, _21st USENIX Symposium on Networked Systems Design and Implementation (NSDI 24)_, https://www.usenix.org/conference/nsdi24/presentation/agarwal-saksham
 [^4]: Intel® Omni-Path Architecture Technology Overview, https://old.hoti.org/hoti23/slides/rimmer.pdf
 [^5]: Mercury: Enabling remote procedure call for high-performance computing, _2013 IEEE International Conference on Cluster Computing (CLUSTER)_, http://ieeexplore.ieee.org/document/6702617/
+[^6]: Ensō: A Streaming Interface for NIC-Application Communication, _17th USENIX Symposium on Operating Systems Design and Implementation (OSDI 23)_, https://www.usenix.org/conference/osdi23/presentation/sadok
 
-_Updated on 20251008 to present a version that ages better._
+_Updated on 20251008 and later on 20251014 to present a version that may age better._
