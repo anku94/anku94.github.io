@@ -4,19 +4,18 @@ title: Metastore Lessons for Science and Storage
 date: 2026-07-05 18:46:36
 description: Stealing some leaves from OLAP's playbook
 tags: storage, analytics
-categories: systems
 giscus_comments: true
 related_posts: false
 ignore: false
 ---
 
 This post is on the evolution of metadata and storage, weaving in PhD thesis lessons along with related trends in storage and scientific data management. While one may suspect a contribution from my new dayjob at Databricks/Unity Catalog in this zealotry, I assert an independent but concurrent lineage. I will outline the 6 trends that converge up to the moment this post unpacks:
-1. Scaling debates in filesystem metadata, predominantly in HPC where we like to have 100k processes synchronously hammer our shared Lustre. Relatively outrageous solution proposals such as _no-global-namespace_^[1], along with more conventional userspace and overlay filesystems.
-2. The rise of object stores^[2] and debates on whether we need a filesystem at all^[3].
-3. The rise of Parquet, open table formats like Iceberg[^4] and Delta Lake^[5], and things like Liquid Clustering^[6].
-4. Ankush discovering early in grad school that file formats with attributes as contiguous buffers are great for particle analytics, manifest formats describing a set of these files along with some per-file statistics, and opportunistic partial ordering run circles around almost everything^[7].
-5. Ankush discovering that telemetry persisted as JSON or CSV is one of the leading causes for global suffering among those trying to understand and fix their systems^[8], and that things go much faster once you use this Pandas format called _feather_.
-6. Ankush finally embracing the daylight and building a system for trace-event analytics around in-situ dataframe analytics and timestep-partitioned Parquet. Missing a manifest format that would just bundle everything together, and learning about Iceberg/Delta Lake (DL) as the paper is being wrapped up^[9].
+1. Scaling debates in filesystem metadata, predominantly in HPC where we like to have 100k processes synchronously hammer our shared Lustre. Relatively outrageous solution proposals such as _no-global-namespace_[^1], along with more conventional userspace and overlay filesystems.
+2. The rise of object stores[^2] and debates on whether we need a filesystem at all[^3].
+3. The rise of Parquet, open table formats like Iceberg[^4] and Delta Lake[^5], and things like Liquid Clustering[^6].
+4. Ankush discovering early in grad school that file formats with attributes as contiguous buffers are great for particle analytics, manifest formats describing a set of these files along with some per-file statistics, and opportunistic partial ordering run circles around almost everything[^7].
+5. Ankush discovering that telemetry persisted as JSON or CSV is one of the leading causes for global suffering among those trying to understand and fix their systems[^8], and that things go much faster once you use this Pandas format called _feather_.
+6. Ankush finally embracing the daylight and building a system for trace-event analytics around in-situ dataframe analytics and timestep-partitioned Parquet. Missing a manifest format that would just bundle everything together, and learning about Iceberg/Delta Lake (DL) as the paper is being wrapped up[^9].
 
 I will now stop referring to myself in third-person. Ok, we get it: columnar analytics is great. For enterprise data, particle data, even trace data. But this is 2026, we know this, and it is not exactly the second coming of Yahoo Messenger. But this becomes the backdrop against which we evaluate how a filesystem and metadata should and can look like.
 
@@ -34,13 +33,14 @@ My pitch for HPC, to be clear, is checkpointing as a commit protocol, with ranks
 
 **Aside: MapReduce > SQL**.  I suppose there was no reason to go down this route, but reason is not why this blog exists.  Some flavor of MapReduce seems to me to the best version of general-purpose analytics, and also more applicable to scientific analytics than we might think. MapReduce is the best runtime for OLAP because it is more general than SQL, but not terribly more complex. ChatGPT says that Stonebraker said something around this and that it might be wrong. I do not trust ChatGPT. Anyway, beyond a shuffler, all SQL operators are just different flavors of map functions that you can reason about a bit for optimization. Note that MapReduce does not necessarily mean Spark: the multi-tier columnar reduction and in-situ analysis framework described above is coming with [9].
 
-**References**
+### References
+
 [^1]:  DeltaFS: A scalable no-ground-truth filesystem for massively-parallel computing, _Proceedings of the International Conference for High Performance Computing, Networking, Storage and Analysis_, https://dl.acm.org/doi/10.1145/3458817.3476148
 [^2]: DAOS: A Scale-Out High Performance Storage Stack for Storage Class Memory, _Supercomputing Frontiers_, 
 [^3]: https://blog.glennklockwood.com/2025/02/llm-training-without-parallel-file.html 
 [^4]: Apache Iceberg - Apache Iceberg™,https://iceberg.apache.org/
-[%5]: Delta lake: High-performance ACID table storage over cloud object stores, _Proceedings of the VLDB Endowment_, https://dl.acm.org/doi/10.14778/3415478.3415560
+[^5]: Delta lake: High-performance ACID table storage over cloud object stores, _Proceedings of the VLDB Endowment_, https://dl.acm.org/doi/10.14778/3415478.3415560
 [^6]: Liquid Clustering: https://delta.io/blog/liquid-clustering/
-[&7]: CARP: Range Query-Optimized Indexing for Streaming Data, _SC24: International Conference for High Performance Computing, Networking, Storage and Analysis_, https://ieeexplore.ieee.org/document/10793150
-[*8]: Lessons from Profiling and Optimizing Placement in AMR Codes, _2025 IEEE International Conference on Cluster Computing (CLUSTER)_, 
+[^7]: CARP: Range Query-Optimized Indexing for Streaming Data, _SC24: International Conference for High Performance Computing, Networking, Storage and Analysis_, https://ieeexplore.ieee.org/document/10793150
+[^8]: Lessons from Profiling and Optimizing Placement in AMR Codes, _2025 IEEE International Conference on Cluster Computing (CLUSTER)_, 
 [^9]: ORCA: Steerable Observability for Bulk-Synchronous Parallel Applications, _The international conference for high performance computing, networking, storage, and analysis_ (to appear)
