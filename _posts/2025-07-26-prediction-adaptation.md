@@ -7,7 +7,6 @@ tags:
   - reasoning
   - ml
   - systems
-categories: systems, ml
 giscus_comments: true
 related_posts: false
 ignore: false
